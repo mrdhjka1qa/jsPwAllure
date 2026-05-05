@@ -32,10 +32,12 @@ jobs:
           npx playwright install --with-deps
 
       # Runs a set of commands using the runners shell
-      - name: Test and generate Allure report
-        run: |
-          npm test
-          npm run allure:generate
+      - name: Run tests
+        run: npm test
+      
+      - name: Generate Allure report
+        if: always()
+        run: npm run allure:generate
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
