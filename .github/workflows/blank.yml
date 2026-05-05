@@ -45,7 +45,7 @@ jobs:
 
       - name: Generate Allure report
         if: always()
-        run: npm run allure:generate
+        run: npm run allure:single
 
       - name: Upload Allure report
         if: always()
