@@ -6,6 +6,7 @@
 "scripts": {
   "test": "playwright test",
   "allure:generate": "allure generate ./allure-results -o ./allure-report --clean",
+  "allure:single": "allure generate --single-file ./allure-results --clean",
   "allure:open": "allure open ./allure-report"
 },
   "keywords": [],
