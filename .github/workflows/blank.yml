@@ -8,10 +8,18 @@ on:
     branches: ["master"]
 
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "tag"
+        required: true
+        default: "ROLE:Test"
+        type: string
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      MY_TAG: ${{ github.event.inputs.tag }}
 
     steps:
       - name: Checkout repository
@@ -30,7 +38,7 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-      
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
