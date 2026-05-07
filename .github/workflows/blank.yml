@@ -19,7 +19,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      MY_TAG: ${{ github.event.inputs.tag }}
+      MY_VAR: ${{ github.event.inputs.tag }}
 
     steps:
       - name: Checkout repository
